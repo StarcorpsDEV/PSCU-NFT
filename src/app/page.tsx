@@ -18,7 +18,7 @@ export default function Home() {
       <Box mt="24px" m="auto">
         <Flex direction="column" gap="4">
           <Heading  size="md" ml="20px" mt="40px">
-            Pulsar ERC-721 NFT collections
+            Pulsar ERC-721 NFTs collections
           </Heading>
           <Flex
             direction="row"
