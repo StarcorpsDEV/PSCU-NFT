@@ -53,6 +53,9 @@ export function ProfileSection(props: Props) {
     client,
   });
 
+
+  var ownedNFTsHistoy
+
   const {
     data,
     error,
@@ -62,7 +65,7 @@ export function ProfileSection(props: Props) {
     {
       contract,
       owner: address,
-      requestPerSec: 50,
+      requestPerSec: 600,
       queryOptions: {
         enabled: !!address,
       },
