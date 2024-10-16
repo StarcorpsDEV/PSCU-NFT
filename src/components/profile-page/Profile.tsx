@@ -65,7 +65,7 @@ export function ProfileSection(props: Props) {
     {
       contract,
       owner: address,
-      requestPerSec: 600,
+      requestPerSec: 10000,
       queryOptions: {
         enabled: !!address,
       },
