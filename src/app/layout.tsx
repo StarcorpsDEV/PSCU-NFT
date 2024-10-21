@@ -5,7 +5,7 @@ import { Analytics } from "@vercel/analytics/react"
 
 export const metadata: Metadata = {
   title: "PSCU NFTs Marketplace",
-  description: "Pulsar Star Corporations United NFTs Marketplace",
+  description: "Pulsar Star Corporations United NFTs Marketplace. Trade ERC-721 NFTs from the Pulsar.game collections on Avalanche, Polygon and BNB.",
 };
 
 export default function RootLayout({
