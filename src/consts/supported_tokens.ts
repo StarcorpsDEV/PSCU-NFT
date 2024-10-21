@@ -27,7 +27,7 @@ export const SUPPORTED_TOKENS: SupportedTokens[] = [
       {
         tokenAddress: "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
         symbol: "WETH",
-        icon: "/erc20-icons/eth.png",
+        icon: "/erc20-icons/weth.png",
       },
       {
         tokenAddress: "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359",
@@ -73,7 +73,7 @@ export const SUPPORTED_TOKENS: SupportedTokens[] = [
       {
         tokenAddress: "0x8b82A291F83ca07Af22120ABa21632088fC92931",
         symbol: "WETH",
-        icon: "/erc20-icons/eth.png",
+        icon: "/erc20-icons/weth.png",
       },
       {
         tokenAddress: "0xB97EF9Ef8734C71904D8002F8b6Bc66Dd9c48a6E",
@@ -103,7 +103,7 @@ export const SUPPORTED_TOKENS: SupportedTokens[] = [
       {
         tokenAddress: "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
         symbol: "WETH",
-        icon: "/erc20-icons/eth.png",
+        icon: "/erc20-icons/weth.png",
       },
       {
         tokenAddress: "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
@@ -128,7 +128,7 @@ export const SUPPORTED_TOKENS: SupportedTokens[] = [
       {
         tokenAddress: "0x4DB5a66E937A9F4473fA95b1cAF1d1E1D62E29EA",
         symbol: "WETH",
-        icon: "/erc20-icons/eth.png",
+        icon: "/erc20-icons/weth.png",
       },
       {
         tokenAddress: "0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d",
