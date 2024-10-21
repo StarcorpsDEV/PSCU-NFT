@@ -1,5 +1,5 @@
 import type { Chain } from "thirdweb";
-import { polygon, avalanche, ethereum } from "./chains";
+import { polygon, avalanche, ethereum, bsc } from "./chains";
 
 type MarketplaceContract = {
   address: string;
@@ -17,5 +17,9 @@ export const MARKETPLACE_CONTRACTS: MarketplaceContract[] = [
   {
     address: "0x2D3c13Def788F089BEFa840EF6C6c94616A973C8",
     chain: avalanche,
+  },
+  {
+    address: "0x1F97E9823cA02fe77027884E6c2170C968a92E06",
+    chain: bsc,
   },
 ];
