@@ -53,16 +53,17 @@ export default function RelatedListings({
 							href={`/collection/${nftContract.chain.id}/${
 								nftContract.address
 							}/token/${item.asset.id.toString()}`}
-							_hover={{ textDecoration: "none" }}
 							minW={250}
+							_hover={{textDecoration: "none", border:"1px" }}
+							padding="24px"
+							margin="6px"
 						>
 							<Flex direction="column">
 								<MediaRenderer
 									client={client}
 									src={item.asset.metadata.image}
 								/>
-								<Text>{item.asset.metadata?.name ?? "Unknown item"}</Text>
-								<Text>Price</Text>
+                                <Text>{item.asset.metadata.name + " #"+item.asset?.id.toString() ?? "Unknown item"}</Text>
 								<Text>
 									{item.currencyValuePerToken.displayValue}{" "}
 									{item.currencyValuePerToken.symbol}

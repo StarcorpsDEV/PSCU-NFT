@@ -31,12 +31,15 @@ export function ListingGrid() {
           href={`/collection/${nftContract.chain.id}/${
             nftContract.address
           }/token/${item.asset.id.toString()}`}
-          _hover={{ textDecoration: "none" }}
-        >
+
+          _hover={{textDecoration: "none", border:"1px" }}
+          w={250}
+          padding="24px"
+          margin="6px"
+          >
           <Flex direction="column">
             <MediaRenderer client={client} src={item.asset.metadata.image} />
-            <Text>{item.asset?.metadata?.name ?? "Unknown item"}</Text>
-            <Text>Price</Text>
+            <Text>{item.asset?.metadata?.name + " #"+item.asset?.id.toString() ?? "Unknown item"}</Text>
             <Text>
               {item.currencyValuePerToken.displayValue}{" "}
               {item.currencyValuePerToken.symbol}

@@ -181,8 +181,10 @@ export function ProfileSection(props: Props) {
                             href={`/collection/${contract.chain.id}/${
                               contract.address
                             }/token/${item.asset.id.toString()}`}
-                            _hover={{ textDecoration: "none" }}
+                            _hover={{textDecoration: "none", border:"1px" }}
                             w={250}
+                            padding="24px"
+                            margin="6px"
                           >
                             <Flex direction="column">
                               <MediaRenderer
@@ -190,9 +192,8 @@ export function ProfileSection(props: Props) {
                                 src={item.asset.metadata.image}
                               />
                               <Text mt="12px">
-                                {item.asset?.metadata?.name ?? "Unknown item"}
+                                <Text>{item.asset?.metadata?.name + " #"+item.asset?.id.toString() ?? "Unknown item"}</Text>
                               </Text>
-                              <Text>Price</Text>
                               <Text>
                                 {toEther(item.pricePerToken)}{" "}
                                 {item.currencyValuePerToken.symbol}

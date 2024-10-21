@@ -33,9 +33,10 @@ export default function Home() {
             >
               {NFT_CONTRACTS.map((item) => (
                 <Link
-                  _hover={{ textDecoration: "none" }}
+                  rounded="12px"
+                  _hover={{textDecoration: "none", border:"1px" }}
+                  margin="6px"                  
                   w={300}
-                  h={400}
                   key={item.address}
                   style={{padding:"24px"}}
                   href={`/collection/${item.chain.id.toString()}/${item.address}`}

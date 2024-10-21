@@ -16,13 +16,15 @@ export function OwnedItem(props: {
         href={`/collection/${nftCollection.chain.id}/${
           nftCollection.address
         }/token/${nft.id.toString()}`}
-        _hover={{ textDecoration: "none" }}
+        _hover={{textDecoration: "none", border:"1px" }}
         w={250}
+        padding="24px"
+        margin="6px"
       >
         <Flex direction="column">
           <MediaRenderer client={client} src={nft.metadata.image} />
-          <Text>{nft.metadata?.name ?? "Unknown item"}</Text>
-        </Flex>
+          <Text>{nft.metadata?.name + " #"+nft.id.toString() ?? "Unknown item"}</Text>
+          </Flex>
       </Box>
     </>
   );

@@ -74,12 +74,15 @@ export function AllNftsGrid() {
               href={`/collection/${nftContract.chain.id}/${
                 nftContract.address
               }/token/${item.id.toString()}`}
-              _hover={{ textDecoration: "none" }}
+              _hover={{textDecoration: "none", border:"1px" }}
+              w={250}
+              padding="24px"
+              margin="6px"
             >
               <Flex direction="column">
                 <MediaRenderer client={client} src={item.metadata.image} />
-                <Text>{item.metadata?.name ?? "Unknown item"}</Text>
-              </Flex>
+                <Text>{item.metadata?.name + " #"+item.id.toString() ?? "Unknown item"}</Text>
+                </Flex>
             </Box>
           ))
         ) : (
