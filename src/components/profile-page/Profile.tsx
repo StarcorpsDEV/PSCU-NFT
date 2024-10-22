@@ -16,12 +16,13 @@ import type { Account } from "thirdweb/wallets";
 import { ProfileMenu } from "./Menu";
 import { useState } from "react";
 import { NFT_CONTRACTS, type NftContract } from "@/consts/nft_contracts";
+import { SUPPORTED_TOKENS, type SupportedTokens } from "@/consts/supported_tokens";
 import {
   MediaRenderer,
   useActiveAccount,
   useReadContract,
 } from "thirdweb/react";
-import { getContract, toEther } from "thirdweb";
+import { getContract, toEther, toTokens } from "thirdweb";
 import { client } from "@/consts/client";
 import { getOwnedERC721s } from "@/extensions/getOwnedERC721s";
 import { OwnedItem } from "./OwnedItem";
@@ -195,7 +196,14 @@ export function ProfileSection(props: Props) {
                                 <Text>{item.asset?.metadata?.name + " #"+item.asset?.id.toString() ?? "Unknown item"}</Text>
                               </Text>
                               <Text>
-                                {toEther(item.pricePerToken)}{" "}
+                              {item.currencyContractAddress == SUPPORTED_TOKENS[0].tokens[1].tokenAddress ? toTokens(item.pricePerToken,6) : 
+                             item.currencyContractAddress == SUPPORTED_TOKENS[0].tokens[2].tokenAddress ? toTokens(item.pricePerToken,6) :
+                             item.currencyContractAddress == SUPPORTED_TOKENS[1].tokens[1].tokenAddress ? toTokens(item.pricePerToken,6) :
+                             item.currencyContractAddress == SUPPORTED_TOKENS[1].tokens[2].tokenAddress ? toTokens(item.pricePerToken,6) :
+                             item.currencyContractAddress ==  SUPPORTED_TOKENS[2].tokens[2].tokenAddress ? toTokens(item.pricePerToken,6) :
+                             item.currencyContractAddress == SUPPORTED_TOKENS[3].tokens[1].tokenAddress ? toTokens(item.pricePerToken,6) :
+                             item.currencyContractAddress == SUPPORTED_TOKENS[3].tokens[2].tokenAddress ? toTokens(item.pricePerToken,6) : toEther(item.pricePerToken)
+                              }{" "}
                                 {item.currencyValuePerToken.symbol}
                               </Text>
                             </Flex>

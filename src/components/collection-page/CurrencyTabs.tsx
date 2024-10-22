@@ -60,7 +60,7 @@ export function CurrencyTabs() {
       listingsUFCORGA.push(item);
     }else if ( item.currencyValuePerToken.symbol == "USDC" ){
       listingsUSDC.push(item);
-    }else if ( item.currencyValuePerToken.symbol == "USDT" ){
+    }else if ( item.currencyValuePerToken.symbol == "USDt" ){
       listingsUSDT.push(item);
     }
     })
@@ -110,7 +110,7 @@ WETH ({listingsWETH.length || 0})</Tab>
   USDC ({listingsUSDC.length || 0})</Tab>
 <Tab>
 <Image src={"/erc20-icons/usdt.png"} w={"24px"} display={"inline-block"}  marginRight={"4px"}/>
-  USDT ({listingsUSDT.length || 0})</Tab>
+  USDt ({listingsUSDT.length || 0})</Tab>
 <Tab>
 <Image src={"/erc20-icons/ufcc.png"} w={"24px"} display={"inline-block"}  marginRight={"4px"}/>
 UFCC ({listingsUFCC.length || 0})</Tab>
@@ -151,7 +151,7 @@ tabCurrencyIndex === 0 && <ListingGrid prop="BNB"/>
 
 {tabCurrencyIndex === 1 && <ListingGrid prop="WETH"/>}
 {tabCurrencyIndex === 2 && <ListingGrid prop="USDC"/>}
-{tabCurrencyIndex === 3 && <ListingGrid prop="USDT"/>}
+{tabCurrencyIndex === 3 && <ListingGrid prop="USDt"/>}
 {tabCurrencyIndex === 4 && <ListingGrid prop="UFCC"/>}
 {tabCurrencyIndex === 5 && <ListingGrid prop="UFCPLSR"/>}
 {tabCurrencyIndex === 6 && <ListingGrid prop="UFCMINE"/>}

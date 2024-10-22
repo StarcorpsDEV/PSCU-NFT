@@ -36,7 +36,7 @@ export const SUPPORTED_TOKENS: SupportedTokens[] = [
       },
       {
         tokenAddress: "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",
-        symbol: "USDT",
+        symbol: "USDt",
         icon: "/erc20-icons/usdt.png",
       },      
       {
@@ -66,7 +66,6 @@ export const SUPPORTED_TOKENS: SupportedTokens[] = [
       },
     ],
   },
-
   {
     chain: avalanche,
     tokens: [
@@ -82,7 +81,7 @@ export const SUPPORTED_TOKENS: SupportedTokens[] = [
       },
       {
         tokenAddress: "0x9702230A8Ea53601f5cD2dc00fDBc13d4dF4A8c7",
-        symbol: "USDT",
+        symbol: "USDt",
         icon: "/erc20-icons/usdt.png",
       },
       {
@@ -94,6 +93,26 @@ export const SUPPORTED_TOKENS: SupportedTokens[] = [
         tokenAddress: "0x7A6bF020161dEab23913ccFa5bE43aD37AEB6CA8",
         symbol: "UFCPLSR",
         icon: "/erc20-icons/ufcplsr.png",
+      },
+    ],
+  },
+  {
+    chain: bsc,
+    tokens: [
+      {
+        tokenAddress: "0x4DB5a66E937A9F4473fA95b1cAF1d1E1D62E29EA",
+        symbol: "WETH",
+        icon: "/erc20-icons/weth.png",
+      },
+      {
+        tokenAddress: "0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d",
+        symbol: "USDC",
+        icon: "/erc20-icons/usdc.png",
+      },
+      {
+        tokenAddress: "0x524bC91Dc82d6b90EF29F76A3ECAaBAffFD490Bc",
+        symbol: "USDt",
+        icon: "/erc20-icons/usdt.png",
       },
     ],
   },
@@ -112,36 +131,11 @@ export const SUPPORTED_TOKENS: SupportedTokens[] = [
       },
       {
         tokenAddress: "0xdAC17F958D2ee523a2206206994597C13D831ec7",
-        symbol: "USDT",
-        icon: "/erc20-icons/usdt.png",
-      },
-      {
-        tokenAddress: "0x6B175474E89094C44Da98b954EedeAC495271d0F",
-        symbol: "DAI",
-        icon: "/erc20-icons/dai.png",
-      }
-    ],
-  },
-  {
-    chain: bsc,
-    tokens: [
-      {
-        tokenAddress: "0x4DB5a66E937A9F4473fA95b1cAF1d1E1D62E29EA",
-        symbol: "WETH",
-        icon: "/erc20-icons/weth.png",
-      },
-      {
-        tokenAddress: "0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d",
-        symbol: "USDC",
-        icon: "/erc20-icons/usdc.png",
-      },
-      {
-        tokenAddress: "0x524bC91Dc82d6b90EF29F76A3ECAaBAffFD490Bc",
-        symbol: "USDT",
+        symbol: "USDt",
         icon: "/erc20-icons/usdt.png",
       },
     ],
-  },
+  }
 ]
 
 export const NATIVE_TOKEN_ICON_MAP: { [key in Chain["id"]]: string } = {
