@@ -66,7 +66,6 @@ export function CurrencyTabs() {
     })
 
 function makeTabs(currencyCounter:number){
-  console.log("currencyCounter",currencyCounter)
 return(
 <Box>
 <Flex direction="column" gap="4">

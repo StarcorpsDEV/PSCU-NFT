@@ -11,6 +11,7 @@ import {
   Text,
   Button,
   Select,
+  Input
 } from "@chakra-ui/react";
 import { useState } from "react";
 import {
@@ -61,7 +62,6 @@ export function AllNftsGrid() {
     xl: Math.min(len, 5),
   });
 
-  console.log({ pages, currentPageIndex, length: pages.length });
   return (
     <>
       <SimpleGrid columns={columns} spacing={4} p={4} mx="auto" mt="20px">
@@ -111,7 +111,21 @@ export function AllNftsGrid() {
             <RiArrowLeftSLine />
           </Button>
           <Text my="auto">
-            Page {currentPageIndex + 1} of {pages.length}
+            Page {" "}
+            
+            <Input
+            type={"number"}
+            min={"0"}
+            max={numberOfPages.toString()}
+            value = { currentPageIndex }
+            w={"80px"}
+            onChange={(e) => {
+              Number(e.target.value) < numberOfPages ? setCurrentPageIndex(Number(e.target.value)) : setCurrentPageIndex(pages.length - 1)
+            }
+            } 
+            />
+            
+            {" "}of {pages.length - 1}
           </Text>
           <Button
             isDisabled={currentPageIndex === pages.length - 1}
@@ -125,7 +139,7 @@ export function AllNftsGrid() {
           >
             <MdKeyboardDoubleArrowRight />
           </Button>
-          {/* <Select
+          { <Select
             w="80px"
             onChange={(e) => setItemsPerPage(Number(e.target.value))}
           >
@@ -134,7 +148,7 @@ export function AllNftsGrid() {
                 {item}
               </option>
             ))}
-          </Select> */}
+          </Select> }
         </Flex>
       </Box>
     </>
