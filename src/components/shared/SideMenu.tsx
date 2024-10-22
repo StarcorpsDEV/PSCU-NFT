@@ -61,9 +61,17 @@ export function SideMenu() {
               <ConnectButton theme={colorMode} client={client} />
             </Box>
             {account && (
-              <Link href="/profile">
+              <Box
+              paddingTop="24px"
+              >
+              <Link href="/profile"
+              rounded="12px"
+              _hover={{textDecoration: "none", border:"1px" }}
+              padding="12px"
+              >
                 Profile {ensName ? `(${ensName})` : ""}
               </Link>
+              </Box>
             )}
           </DrawerBody>
           <DrawerFooter>

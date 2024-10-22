@@ -9,8 +9,14 @@ import {
   Text,
 } from "@chakra-ui/react";
 import { MediaRenderer } from "thirdweb/react";
+import {
+  type DirectListing,
+  type EnglishAuction
+} from "thirdweb/extensions/marketplace";
 
-export function ListingGrid() {
+
+export function ListingGrid( prop:any ) {
+  let symbol = prop
   const { listingsInSelectedCollection, nftContract } = useMarketplaceContext();
   const len = listingsInSelectedCollection.length;
   const columns = useBreakpointValue({
@@ -21,9 +27,20 @@ export function ListingGrid() {
     xl: Math.min(len, 5),
   });
   if (!listingsInSelectedCollection || !len) return <></>;
+  var listings = new Array<DirectListing>()
+  
+  listingsInSelectedCollection.map((item) => {
+  if( item.currencyValuePerToken.symbol == symbol.prop){
+    listings.push(item);
+  }
+  })
+
+  listings.sort((a, b) => parseFloat(a.currencyValuePerToken.displayValue) - parseFloat(b.currencyValuePerToken.displayValue));
+
+
   return (
     <SimpleGrid columns={columns} spacing={4} p={4} mx="auto" mt="20px">
-      {listingsInSelectedCollection.map((item) => (
+      {listings.map((item) => (
         <Box
           key={item.id}
           rounded="12px"

@@ -5,8 +5,8 @@ import { client } from "@/consts/client";
 import { Box, Flex, Heading, Tab, TabList, Tabs, Text } from "@chakra-ui/react";
 import { useState } from "react";
 import { useMarketplaceContext } from "@/hooks/useMarketplaceContext";
-import { ListingGrid } from "./ListingGrid";
 import { AllNftsGrid } from "./AllNftsGrid";
+import { CurrencyTabs } from "./CurrencyTabs";
 
 export function Collection() {
   // `0` is Listings, `1` is `Auctions`
@@ -88,7 +88,7 @@ export function Collection() {
         </Flex>
       </Box>
       <Flex direction="column">
-        {tabIndex === 0 && <ListingGrid />}
+        {tabIndex === 0 && <CurrencyTabs />}
         {tabIndex === 1 && <AllNftsGrid />}
       </Flex>
     </>
