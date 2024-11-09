@@ -40,7 +40,7 @@ export function CurrencyTabs(props:any) {
     if( item.currencyValuePerToken.symbol == "AVAX" ){
       listingsAVAX.push(item);
       currencyCounter=1
-    }else if ( item.currencyValuePerToken.symbol == "POL" ){
+    }else if ( item.currencyValuePerToken.symbol == "POL" || item.currencyValuePerToken.symbol == "MATIC" ){
       listingsPOL.push(item);
       currencyCounter=2
     }else if ( item.currencyValuePerToken.symbol == "BNB" ){
