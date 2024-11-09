@@ -31,7 +31,7 @@ export function Collection() {
       },
     }
   );
-
+  
   const thumbnailImage =
     contractMetadata?.image || firstNFT?.metadata.image || "";
   return (
@@ -88,7 +88,7 @@ export function Collection() {
         </Flex>
       </Box>
       <Flex direction="column">
-        {tabIndex === 0 && <CurrencyTabs />}
+        {tabIndex === 0 && <CurrencyTabs chain={nftContract.chain.name} />}
         {tabIndex === 1 && <AllNftsGrid />}
       </Flex>
     </>

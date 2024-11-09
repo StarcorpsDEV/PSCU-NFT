@@ -10,9 +10,9 @@ import { useState } from "react";
 import { ListingGrid } from "./ListingGrid";
 
 
-export function CurrencyTabs() {
+export function CurrencyTabs(props:any) {
+  const chain=props.chain
   const [tabCurrencyIndex, setTabCurrencyIndex] = useState<number>(0);
-
 
   const { listingsInSelectedCollection, nftContract } = useMarketplaceContext();
   const len = listingsInSelectedCollection.length;
@@ -77,7 +77,7 @@ mx="auto"
   isLazy
   >
 <TabList>
-{ currencyCounter == 1 ?
+{ chain == "Avalanche" ?
 <Tab>
 <Image src={"/native-token-icons/avax.png"} w={"24px"} display={"inline-block"} marginRight={"4px"}/>
 AVAX ({listingsAVAX.length || 0})</Tab>
@@ -85,7 +85,7 @@ AVAX ({listingsAVAX.length || 0})</Tab>
 ""
 }
 
-{ currencyCounter == 2 ? 
+{ chain == "Polygon" ? 
 <Tab>
 <Image src={"/native-token-icons/pol.png"} w={"24px"} display={"inline-block"} marginRight={"4px"}/>
   POL ({listingsPOL.length || 0})</Tab>
@@ -93,7 +93,7 @@ AVAX ({listingsAVAX.length || 0})</Tab>
 ""
 }
 
-{ currencyCounter == 3 ? 
+{ chain == "BNB Smart Chain Mainnet" ? 
       <Tab>
           <Image src={"/native-token-icons/bsc.png"} w={"24px"} display={"inline-block"} marginRight={"4px"}/>
         BNB ({listingsBNB.length || 0})</Tab>
@@ -132,17 +132,17 @@ UFCORGA ({listingsUFCORGA.length || 0})</Tab>
 </Flex>
 
 <Flex direction="column">
-{  listingsAVAX.length > 0 ? 
+{ chain == "Avalanche" ? 
 tabCurrencyIndex === 0 && <ListingGrid prop="AVAX"/>
 :
 ""
 }
-{  listingsPOL.length > 0 ? 
+{ chain == "Polygon" ? 
 tabCurrencyIndex === 0 && <ListingGrid prop="POL"/>
 :
 ""
 }
-{  listingsBNB.length > 0 ? 
+{ chain == "BNB Smart Chain Mainnet" ? 
 tabCurrencyIndex === 0 && <ListingGrid prop="BNB"/>
 :
 ""
