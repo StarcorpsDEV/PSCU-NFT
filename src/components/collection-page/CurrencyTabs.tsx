@@ -35,17 +35,13 @@ export function CurrencyTabs(props:any) {
   var listingsUFCMINE = new Array<DirectListing>()
   var listingsUFCGAZ = new Array<DirectListing>()
   var listingsUFCORGA = new Array<DirectListing>()
-  var currencyCounter : number = 0
   listingsInSelectedCollection.map((item) => {
     if( item.currencyValuePerToken.symbol == "AVAX" ){
       listingsAVAX.push(item);
-      currencyCounter=1
     }else if ( item.currencyValuePerToken.symbol == "POL" || item.currencyValuePerToken.symbol == "MATIC" ){
       listingsPOL.push(item);
-      currencyCounter=2
     }else if ( item.currencyValuePerToken.symbol == "BNB" ){
       listingsBNB.push(item);
-      currencyCounter=3
     }else if ( item.currencyValuePerToken.symbol == "WETH" ){
       listingsWETH.push(item);
     }else if ( item.currencyValuePerToken.symbol == "UFCC" ){
@@ -65,7 +61,7 @@ export function CurrencyTabs(props:any) {
     }
     })
 
-function makeTabs(currencyCounter:number){
+function makeTabs(){
 return(
 <Box>
 <Flex direction="column" gap="4">
@@ -138,7 +134,7 @@ tabCurrencyIndex === 0 && <ListingGrid prop="AVAX"/>
 ""
 }
 { chain == "Polygon" ? 
-tabCurrencyIndex === 0 && <ListingGrid prop="POL"/>
+tabCurrencyIndex === 0 && <ListingGrid prop="MATIC"/>
 :
 ""
 }
@@ -163,7 +159,7 @@ tabCurrencyIndex === 0 && <ListingGrid prop="BNB"/>
 
 return (
 <>
-  {makeTabs(currencyCounter)}
+  {makeTabs()}
 </> 
   );
 }
