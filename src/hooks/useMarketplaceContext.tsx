@@ -89,8 +89,8 @@ export default function MarketplaceProvider({
 
   const contract = getContract({
     chain: marketplaceContract.chain,
-    client,
     address: contractAddress,
+    client,
   });
 
   const marketplace = getContract({
@@ -130,10 +130,28 @@ export default function MarketplaceProvider({
     isRefetching: isRefetchingAllListings,
   } = useReadContract(getAllValidListings, {
     contract: marketplace,
+    start:0,
+    count:100n,
     queryOptions: {
       enabled: isNftCollection,
     },
   });
+
+  const {
+    data: allValidListings2,
+    isLoading: isLoadingValidListings2,
+    refetch: refetchAllListings2,
+    isRefetching: isRefetchingAllListings2,
+  } = useReadContract(getAllValidListings, {
+    contract: marketplace,
+    start:100,
+    count:200n,
+    queryOptions: {
+      enabled: isNftCollection,
+    },
+  });
+
+  console.log(allValidListings)
 
   const listingsInSelectedCollection = allValidListings?.length
     ? allValidListings.filter(
@@ -142,6 +160,18 @@ export default function MarketplaceProvider({
           contract.address.toLowerCase()
       )
     : [];
+
+    const listingsInSelectedCollection2 = allValidListings2?.length
+    ? allValidListings2.filter(
+        (item) =>
+          item.assetContractAddress.toLowerCase() ===
+          contract.address.toLowerCase()
+      )
+    : [];
+
+for (let i = 0; i < listingsInSelectedCollection2.length; i++) {
+  listingsInSelectedCollection.push(listingsInSelectedCollection2[i]);
+}
 
   const { data: allAuctions, isLoading: isLoadingAuctions } = useReadContract(
     getAllAuctions,
@@ -164,12 +194,16 @@ export default function MarketplaceProvider({
     isLoadingAuctions ||
     isLoadingContractMetadata ||
     isLoadingValidListings ||
+    isLoadingValidListings2 ||
     isLoadingSupplyInfo;
 
   const supportedTokens: Token[] =
     SUPPORTED_TOKENS.find(
       (item) => item.chain.id === marketplaceContract.chain.id
     )?.tokens || [];
+
+
+
 
   return (
     <MarketplaceContext.Provider

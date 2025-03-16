@@ -25,6 +25,7 @@ export function CurrencyTabs(props:any) {
   });
   if (!listingsInSelectedCollection || !len) return <></>;
   var listingsAVAX = new Array<DirectListing>()
+  var listingsPLSR = new Array<DirectListing>()
   var listingsPOL = new Array<DirectListing>()
   var listingsUSDC = new Array<DirectListing>()
   var listingsUSDT = new Array<DirectListing>()
@@ -58,7 +59,10 @@ export function CurrencyTabs(props:any) {
       listingsUSDC.push(item);
     }else if ( item.currencyValuePerToken.symbol == "USDt" ){
       listingsUSDT.push(item);
+    }else if ( item.currencyValuePerToken.symbol == "PLSR" ){
+      listingsPLSR.push(item);
     }
+    
     })
 
 function makeTabs(){
@@ -96,7 +100,10 @@ AVAX ({listingsAVAX.length || 0})</Tab>
   :
 ""
 }
-
+<Tab>
+<Image src={"/erc20-icons/plsr.png"} w={"24px"} display={"inline-block"} marginRight={"4px"}/>
+PLSR ({listingsPLSR.length || 0})
+</Tab>
 <Tab>                  
   <Image src={"/erc20-icons/weth.png"} w={"24px"} display={"inline-block"} marginRight={"4px"}/>
 WETH ({listingsWETH.length || 0})</Tab>
@@ -106,14 +113,17 @@ WETH ({listingsWETH.length || 0})</Tab>
 <Tab>
 <Image src={"/erc20-icons/usdt.png"} w={"24px"} display={"inline-block"}  marginRight={"4px"}/>
   USDt ({listingsUSDT.length || 0})</Tab>
-<Tab>
-<Image src={"/erc20-icons/ufcc.png"} w={"24px"} display={"inline-block"}  marginRight={"4px"}/>
-UFCC ({listingsUFCC.length || 0})</Tab>
 </TabList>
+
 <TabList>
 <Tab>
 <Image src={"/erc20-icons/ufcplsr.png"} w={"24px"} display={"inline-block"}  marginRight={"4px"}/>
-  UFCPLSR ({listingsUFCPLSR.length || 0})</Tab>
+  UFCPLSR ({listingsUFCPLSR.length || 0})
+</Tab>
+<Tab>
+<Image src={"/erc20-icons/ufcc.png"} w={"24px"} display={"inline-block"}  marginRight={"4px"}/>
+UFCC ({listingsUFCC.length || 0})
+</Tab>
 <Tab>
 <Image src={"/erc20-icons/ufcmine.png"} w={"24px"} display={"inline-block"}  marginRight={"4px"}/>
 UFCMINE ({listingsUFCMINE.length || 0})</Tab>
@@ -144,14 +154,15 @@ tabCurrencyIndex === 0 && <ListingGrid prop="BNB"/>
 ""
 }
 
-{tabCurrencyIndex === 1 && <ListingGrid prop="WETH"/>}
-{tabCurrencyIndex === 2 && <ListingGrid prop="USDC"/>}
-{tabCurrencyIndex === 3 && <ListingGrid prop="USDt"/>}
-{tabCurrencyIndex === 4 && <ListingGrid prop="UFCC"/>}
+{tabCurrencyIndex === 1 && <ListingGrid prop="PLSR"/>}
+{tabCurrencyIndex === 2 && <ListingGrid prop="WETH"/>}
+{tabCurrencyIndex === 3 && <ListingGrid prop="USDC"/>}
+{tabCurrencyIndex === 4 && <ListingGrid prop="USDt"/>}
 {tabCurrencyIndex === 5 && <ListingGrid prop="UFCPLSR"/>}
-{tabCurrencyIndex === 6 && <ListingGrid prop="UFCMINE"/>}
-{tabCurrencyIndex === 7 && <ListingGrid prop="UFCGAZ"/>}
-{tabCurrencyIndex === 8 && <ListingGrid prop="UFCORGA"/>}
+{tabCurrencyIndex === 6 && <ListingGrid prop="UFCC"/>}
+{tabCurrencyIndex === 7 && <ListingGrid prop="UFCMINE"/>}
+{tabCurrencyIndex === 8 && <ListingGrid prop="UFCGAZ"/>}
+{tabCurrencyIndex === 9 && <ListingGrid prop="UFCORGA"/>}
 </Flex>
 </Box>
   )

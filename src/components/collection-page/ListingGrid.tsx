@@ -32,7 +32,7 @@ export function ListingGrid( prop:any ) {
   const len = listingsInSelectedCollection.length;
   const [itemsPerPage, setItemsPerPage] = useState<number>(20);
   const [currentPageIndex, setCurrentPageIndex] = useState<number>(0);
- 
+
   const columns = useBreakpointValue({
     base: 1,
     sm: Math.min(len, 2),
@@ -42,16 +42,16 @@ export function ListingGrid( prop:any ) {
   });
   if (!listingsInSelectedCollection || !len) return <></>;
   var listings = new Array<DirectListing>()
-  
+
   listingsInSelectedCollection.map((item) => {
-    if( item.currencyValuePerToken.symbol == symbol.prop){
+    if( item.currencyValuePerToken.symbol == symbol.prop ){
     listings.push(item);
   }
   })
 
   listings.sort((a, b) => parseFloat(a.currencyValuePerToken.displayValue) - parseFloat(b.currencyValuePerToken.displayValue));
 
-  const totalItems: bigint = listings.length >= 0 ? BigInt(listings.length) : 0n
+  const totalItems: bigint = listingsInSelectedCollection.length >= 0 ? BigInt(listingsInSelectedCollection.length) : 0n
   const numberOfPages: number = Number(
     (totalItems + BigInt(itemsPerPage) - 1n) / BigInt(itemsPerPage)
   );
@@ -85,7 +85,7 @@ export function ListingGrid( prop:any ) {
           >
           <Flex direction="column">
             <MediaRenderer client={client} src={item.asset.metadata.image} />
-            <Text>{item.asset?.metadata?.name + " #"+item.asset?.id.toString() ?? "Unknown item"}</Text>
+            <Text>{item.asset?.metadata?.name + " #"+item.asset?.id.toString()}</Text>
             <Text>
               {item.currencyValuePerToken.displayValue}{" "}
               {item.currencyValuePerToken.symbol}

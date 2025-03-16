@@ -70,6 +70,11 @@ export const SUPPORTED_TOKENS: SupportedTokens[] = [
     chain: avalanche,
     tokens: [
       {
+        tokenAddress: "0x7a842193D291840FC38B45f991c5B8cC908f8A7C",
+        symbol: "PLSR",
+        icon: "/erc20-icons/plsr.png",
+      },
+      {
         tokenAddress: "0x8b82A291F83ca07Af22120ABa21632088fC92931",
         symbol: "WETH",
         icon: "/erc20-icons/weth.png",

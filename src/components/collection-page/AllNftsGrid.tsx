@@ -81,7 +81,7 @@ export function AllNftsGrid() {
             >
               <Flex direction="column">
                 <MediaRenderer client={client} src={item.metadata.image} />
-                <Text>{item.metadata?.name + " #"+item.id.toString() ?? "Unknown item"}</Text>
+                <Text>{item.metadata?.name + " #"+item.id.toString()}</Text>
                 </Flex>
             </Box>
           ))
