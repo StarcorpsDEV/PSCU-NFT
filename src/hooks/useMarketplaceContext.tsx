@@ -151,7 +151,6 @@ export default function MarketplaceProvider({
     },
   });
 
-  console.log(allValidListings)
 
   const listingsInSelectedCollection = allValidListings?.length
     ? allValidListings.filter(

@@ -193,7 +193,7 @@ export function ProfileSection(props: Props) {
                                 src={item.asset.metadata.image}
                               />
                               <Text mt="12px">
-                                <Text>{item.asset?.metadata?.name + " #"+item.asset?.id.toString() ?? "Unknown item"}</Text>
+                                <Text>{item.asset?.metadata?.name + " #"+item.asset?.id.toString()}</Text>
                               </Text>
                               <Text>
                               {item.currencyContractAddress == SUPPORTED_TOKENS[0].tokens[1].tokenAddress ? toTokens(item.pricePerToken,6) : 
